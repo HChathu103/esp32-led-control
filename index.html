@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ESP32 LED Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="scanlines"></div>
+  <div class="grid-bg"></div>
+
+  <main class="container">
+
+    <header>
+      <div class="logo-row">
+        <div class="chip-icon">
+          <div class="chip-body">
+            <span class="pin pin-left" style="top:18%"></span>
+            <span class="pin pin-left" style="top:38%"></span>
+            <span class="pin pin-left" style="top:58%"></span>
+            <span class="pin pin-left" style="top:78%"></span>
+            <span class="pin pin-right" style="top:18%"></span>
+            <span class="pin pin-right" style="top:38%"></span>
+            <span class="pin pin-right" style="top:58%"></span>
+            <span class="pin pin-right" style="top:78%"></span>
+            <span class="chip-label">ESP32</span>
+          </div>
+        </div>
+        <div>
+          <h1>LED CONTROL</h1>
+          <p class="tagline">Bluetooth Remote Interface</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- BLE Status Panel -->
+    <section class="panel" id="status-panel">
+      <div class="panel-header">
+        <span class="panel-tag">BLE STATUS</span>
+        <div class="signal-bars" id="signal-bars">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+      <div class="status-row">
+        <div class="status-dot" id="status-dot"></div>
+        <span class="status-text" id="status-text">DISCONNECTED</span>
+      </div>
+      <div class="device-info" id="device-info" style="display:none">
+        <span class="info-label">DEVICE</span>
+        <span class="info-value" id="device-name-display">—</span>
+      </div>
+    </section>
+
+    <!-- Connect Button -->
+    <button class="btn-connect" id="connect-btn" onclick="connectBLE()">
+      <span class="btn-inner">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6.5 6.5l11 11M17.5 6.5L12 12l5.5 5.5M6.5 6.5L12 12"/>
+        </svg>
+        CONNECT ESP32
+      </span>
+      <div class="btn-glow"></div>
+    </button>
+
+    <!-- LED Control Panel -->
+    <section class="panel led-panel" id="led-panel">
+      <div class="panel-header">
+        <span class="panel-tag">GPIO PIN 15</span>
+        <span class="panel-tag" id="led-state-tag">OFF</span>
+      </div>
+
+      <div class="led-display">
+        <div class="led-ring" id="led-ring">
+          <div class="led-bulb" id="led-bulb">
+            <div class="led-core"></div>
+          </div>
+        </div>
+        <p class="led-status-text" id="led-status-text">LED OFF</p>
+      </div>
+
+      <div class="control-row">
+        <button class="btn-led on" id="btn-on" onclick="sendCommand('1')" disabled>
+          <span>▶ ON</span>
+        </button>
+        <button class="btn-led off" id="btn-off" onclick="sendCommand('0')" disabled>
+          <span>■ OFF</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Disconnect -->
+    <button class="btn-disconnect" id="disconnect-btn" onclick="disconnectBLE()" disabled>
+      DISCONNECT
+    </button>
+
+    <!-- Log -->
+    <section class="log-panel">
+      <div class="panel-header">
+        <span class="panel-tag">SERIAL LOG</span>
+        <button class="btn-clear" onclick="clearLog()">CLEAR</button>
+      </div>
+      <div class="log-output" id="log"></div>
+    </section>
+
+    <footer>
+      <p>⚠ Requires Chrome or Edge (desktop / Android). Not supported on iOS Safari.</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
