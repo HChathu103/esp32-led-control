@@ -49,7 +49,7 @@ class MyServerCallbacks : public BLEServerCallbacks {
 // ── Write callback — fires when webapp sends '1' or '0' ──────────────────────
 class LEDCallbacks : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic* pCharacteristic) override {
-    std::string value = pCharacteristic->getValue();
+    string value = pCharacteristic->getValue();
 
     if (value.length() > 0) {
       char cmd = value[0];
