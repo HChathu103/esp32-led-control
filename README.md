@@ -42,51 +42,10 @@ ESP32 GND     ──────────────────────
 
 ---
 
-## Step 3 — Set Up Web App in VS Code
 
-Your project structure:
-```
-esp32-led-control/
-├── index.html
-├── style.css
-├── app.js
-└── esp32_ble_led.ino   ← only needed locally, not deployed
-```
+## Step 3 — How to Use the App
 
-1. Open the `esp32-led-control` folder in VS Code
-2. To preview locally, install the **Live Server** extension:
-   - Extensions panel (Ctrl+Shift+X) → search "Live Server" → Install
-   - Right-click `index.html` → **Open with Live Server**
-   > ⚠ Web Bluetooth requires HTTPS in production. Local Live Server works for testing.
-
----
-
-## Step 4 — Publish via GitHub Pages
-
-1. Create a new GitHub repository (e.g. `esp32-led-control`)
-2. In VS Code terminal:
-   ```bash
-   git init
-   git add index.html style.css app.js
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/esp32-led-control.git
-   git push -u origin main
-   ```
-3. On GitHub, go to the repo **Settings → Pages**
-4. Under Source, select **Deploy from a branch → main → / (root)**
-5. Click **Save**
-6. Your app is live at:
-   ```
-   https://YOUR_USERNAME.github.io/esp32-led-control/
-   ```
-   > GitHub Pages serves over HTTPS automatically — Web Bluetooth will work.
-
----
-
-## Step 5 — Using the App
-
-1. Open the GitHub Pages URL in **Chrome or Edge** (desktop or Android)
+1. Open the URL https://hchathu103.github.io/esp32-led-control/ in **Chrome or Edge** (desktop or Android)
    > ⚠ Safari / Firefox / iOS are NOT supported for Web Bluetooth
 2. Make sure your computer/phone Bluetooth is turned ON
 3. Click **CONNECT ESP32**
