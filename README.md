@@ -43,7 +43,7 @@ ESP32 GND     ──────────────────────
 ---
 
 
-## Step 3 — How to Use the App
+## Step 3 — How to Use the Web App
 
 1. Open the URL https://hchathu103.github.io/esp32-led-control/ in **Chrome or Edge** (desktop or Android)
    > ⚠ Safari / Firefox / iOS are NOT supported for Web Bluetooth
